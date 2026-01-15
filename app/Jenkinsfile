@@ -42,7 +42,7 @@ spec:
             steps {
                 container('python'){
                     sh '''
-                        
+                        cd app
                         pip install -r requirements.txt
                         bandit -r . -x '/.venv/','/tests/'
                         black .
