@@ -1,33 +1,3 @@
-// Uses Declarative syntax to run commands inside a container.
-pipeline {
-    agent {
-        kubernetes {
-           yamlFile 'jenkinsPod.yaml'
-        }
-    }
-    stages {
-        stage('Unit tests') {
-            when {
-                anyOf {
-                    branch pattern: "feature-*"
-                    branch pattern: "develop"
-                    branch pattern: "hotfix-*"
-                    branch pattern: "release-*"
-                    branch pattern: "v*"
-                }
-            }
-            steps {
-                container('python'){
-                    sh '''
-                        cd app
-                        pip install -r requirements.txt
-                        bandit -r . -x '/.venv/','/tests/'
-                        black .
-                        flake8 . --exclude .venv
-                        pytest -v --disable-warnings
-                    '''
-                }
-            }
-        }
-    }
-}
+@Library('jenkins-shared-libraries')_
+
+pythonPipeline {}
