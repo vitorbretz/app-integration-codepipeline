@@ -46,5 +46,5 @@ spec:
   - ip: "172.18.0.50"
     hostnames:
     - "gitea.localhost.com"
-  securityContext:
-    runAsUser: 1000
+  # securityContext:
+  #   runAsUser: 1000
