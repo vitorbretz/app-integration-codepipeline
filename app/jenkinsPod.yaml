@@ -14,9 +14,9 @@ spec:
     - sleep
     args:
     - infinity
-    volumeMounts:
-    - name: kaniko-secret
-      mountPath: /kaniko/.docker
+    # volumeMounts:
+    # - name: kaniko-secret
+    #   mountPath: /kaniko/.docker
   # - name: helm
   #   image: alpine/helm:3.12.0
   #   command:
@@ -35,13 +35,13 @@ spec:
     - sleep
     args:
     - infinity
-  volumes:
-  - name: kaniko-secret
-    secret:
-      secretName: harbor-credentials
-      items:
-      - key: .dockerconfigjson
-        path: config.json
+  # volumes:
+  # - name: kaniko-secret
+  #   secret:
+  #     secretName: harbor-credentials
+  #     items:
+  #     - key: .dockerconfigjson
+  #       path: config.json
   hostAliases:
   - ip: "172.18.0.50"
     hostnames:
