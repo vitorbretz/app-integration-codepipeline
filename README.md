@@ -1,4 +1,4 @@
-# DevOps Platform - Kind Cluster
+# Jenkins K8S Platform
 
 Plataforma DevOps completa rodando em cluster Kubernetes local (Kind) com Jenkins, Gitea, Harbor, SonarQube e ArgoCD.
 
